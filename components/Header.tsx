@@ -1,7 +1,10 @@
+'use client'
 import Search from "@/assets/svg/search";
 import Image from "next/image";
 import React from "react";
-
+import { useWeb3Modal } from '@web3modal/wagmi/react'
+// @ts-ignore
+import { ConnectButton } from 'web3uikit'
 const styles = {
   navLink: `text-white flex mx-[10px]`,
   badge: `rounded-full bg-blue-600 h-1 w-1 absolute bottom-5 right-0 top-1 ring-4`,
@@ -15,6 +18,8 @@ const styles = {
 };
 
 export default function Header() {
+
+  const { open } = useWeb3Modal()
   return (
     <div className={styles.header}>
       <Image
@@ -56,8 +61,11 @@ export default function Header() {
             <div className={styles.navLink}> Learning </div>
           </div>
         </nav>
-        <div className="flex items-center">
-          {/* <ConnectButton /> */}
+        <div></div>
+        <div className="flex items-center mr-5 ml-5">
+          
+        <button className="btn bg-green-950 p-2 rounded-full" onClick={() => open()}>Connect</button>
+      {/* <button onClick={() => open({ view: 'Networks' })}>Open Network Modal</button> */}
           <div className={styles.inputContainer}>
             <Search />
             <input className={styles.input} placeholder="Search" />

@@ -4,6 +4,8 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "target": "es5",  // Adjust target based on your project needs
+    "typeRoots": ["node_modules/@types", "./typings"],
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
